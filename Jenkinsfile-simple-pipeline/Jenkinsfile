@@ -17,7 +17,6 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                    checkout scm
                     gv = load "script.groovy"
                     
                 }
