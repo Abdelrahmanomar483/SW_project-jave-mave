@@ -29,6 +29,13 @@ pipeline {
                 }
             }
         }
+        stage("removing image from local repo") {
+            steps {
+                script {
+                    gv.removeImage()
+                }
+            }
+        }
         stage("deploy") {
             steps {
                 script {
