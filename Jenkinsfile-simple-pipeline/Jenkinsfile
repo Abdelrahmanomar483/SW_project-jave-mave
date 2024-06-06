@@ -12,10 +12,25 @@ pipeline {
         }
         stage("build jar") {
             steps {
+<<<<<<< HEAD
+            echo "building the application..."
+            sh 'mvn package'
+=======
                 echo "building the application..."
                 sh 'mvn package' 
+>>>>>>> 12905658c46bca1829328533f27619c2fadb9097
             }
         }
+<<<<<<< HEAD
+        stage("build image") {
+            steps {            
+            echo "building the docker image..."
+            withCredentials([usernamePassword(credentialsId: 'd95e5bec-495a-49d1-90e5-3b52c8daf1a0', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+            sh 'docker build -t abdosalah663888/docker:jm1.0 . '
+            sh "echo $PASS | docker login -u $USER --password-stdin"
+            sh 'docker push abdosalah663888/docker:jm1.0'
+            }  
+=======
         stage("build docker image") {
             steps {
                 echo "building the docker image..."
@@ -24,15 +39,27 @@ pipeline {
                 sh "echo $PASS | docker login -u $USER --password-stdin"
                 sh 'docker push abdosalah663888/docker:jm1.0'
             }
+>>>>>>> 12905658c46bca1829328533f27619c2fadb9097
         }
         stage("removing image from local repo") {
             steps {
+<<<<<<< HEAD
             sh 'docker rmi abdosalah663888/docker:jm1.0'
+                }
+=======
+            sh 'docker rmi abdosalah663888/docker:jm1.0'
+>>>>>>> 12905658c46bca1829328533f27619c2fadb9097
             }
         }
         stage("deploy") {
             steps {
+<<<<<<< HEAD
+                script {
                 echo 'deploying the application...'
+                }
+=======
+                echo 'deploying the application...'
+>>>>>>> 12905658c46bca1829328533f27619c2fadb9097
             }
         }
     }
