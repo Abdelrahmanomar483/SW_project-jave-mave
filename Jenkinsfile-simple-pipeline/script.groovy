@@ -11,6 +11,9 @@ def buildImage() {
         sh 'docker push abdosalah663888/docker:jm1.0'
     }
 } 
+def removeImage() {
+    sh 'docker rmi abdosalah663888/docker:jm1.0'
+}
 
 def deployApp() {
     echo 'deploying the application...'
