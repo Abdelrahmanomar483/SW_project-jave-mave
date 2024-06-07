@@ -23,7 +23,6 @@ pipeline {
                 echo "removing the docker image..."
                 }
             }
-        }
         stage("deploy") {
             steps {
                     echo 'deploying the application...'
