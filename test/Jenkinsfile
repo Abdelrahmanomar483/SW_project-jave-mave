@@ -2,6 +2,9 @@
 
 pipeline {
     agent any
+    checkout scmGit(userRemoteConfigs: [
+                    [ url: 'https://github.com/jenkinsci/git-plugin' ]
+                ])
     stages {
         stage("init") {
             steps {
