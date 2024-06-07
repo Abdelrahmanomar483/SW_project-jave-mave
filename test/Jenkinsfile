@@ -1,0 +1,33 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+    stages {
+        stage("init") {
+            steps {
+                echo "initializing the application..."
+            }
+        }
+        stage("build jar") {
+            steps {
+                echo "building the application..."
+            }
+        }
+        stage("build image") {
+            steps {
+                echo "building the docker image..."
+            }
+        } 
+        stage("removing image from local repo") {
+            steps {
+                echo "removing the docker image..."
+                }
+            }
+        }
+        stage("deploy") {
+            steps {
+                    echo 'deploying the application...'
+            }
+        }
+    }
+}
